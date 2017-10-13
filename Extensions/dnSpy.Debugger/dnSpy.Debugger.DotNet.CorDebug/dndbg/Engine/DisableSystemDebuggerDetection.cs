@@ -67,6 +67,17 @@ namespace dndbg.Engine {
 				error |= !b;
 				if (b)
 					error |= !WriteReturnFalse(process, addr);
+				
+				b = mgr.FindFunc(debuggerClassName, "IsAttached", out addr);
+				error |= !b;
+				if (b)
+					error |= !WriteReturnFalse(process, addr);
+				
+				b = mgr.FindFunc(debuggerClassName, "CheckRemoteDebuggerPresent", out addr);
+				error |= !b;
+				if (b)
+					error |= !WriteReturnFalse(process, addr);
+				
 
 				return !error;
 			}
